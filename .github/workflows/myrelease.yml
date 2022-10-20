@@ -79,7 +79,7 @@ jobs:
           pwd
           cd ../site
           pwd
-          zip -r ../deploy.zip . -x '*.git*'
+          zip -r ../emptynuxt/deploy.zip . -x '*.git*'
           cd ..
           pwd
           ls -a

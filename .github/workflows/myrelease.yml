@@ -32,6 +32,17 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore  
         
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
+      - name: NPM Install
+        run: npm install
+        
+      - name: NPM Build
+        run: npm run build
+        
       #- name: Test
       #  run: dotnet test --no-restore --verbosity normal
         

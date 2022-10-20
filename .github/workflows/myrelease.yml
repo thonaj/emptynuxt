@@ -76,6 +76,6 @@ jobs:
           aws_secret_key: ${{ env.aws_secret_key }}
           application_name: ${{ env.aws_application_name }}
           environment_name: ${{ env.aws_environment_name }}
-          version_label: 119
+          version_label: "Ver-${{ github.sha }}"
           region: us-east-1
           deployment_package: deploy.zip

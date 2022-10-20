@@ -1,8 +1,10 @@
 name: build and deploy to aws eb
 
 env:
-  aws_access_key: ${{ secrets.aws_access_key }}
-  aws_secret_key: ${{ secrets.aws_secret_key }}  
+  aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+  aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}  
+  aws_environment_name: ${{ secrets.AWS_ENVIRONMENT_NAME }}
+  aws_application_name: ${{ secrets.AWS_APPLICATION_NAME }}
 
 on: [push]
 
@@ -38,13 +40,13 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
         
-      #- name: Deploy to EB
-      #uses: einaregilsson/beanstalk-deploy@v20
-      #with:
-      #  aws_access_key: ${{ env.aws_access_key }}
-      #  aws_secret_key: ${{ env.aws_secret_key }}
-      #  application_name: orchestrate-dev
-      #  environment_name: Orchestratedev-env-1
-      #  version_label: 119
-      #  region: us-east-1
-      #  deployment_package: deploy.zip
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v20
+        with:
+          aws_access_key: ${{ env.aws_access_key }}
+          aws_secret_key: ${{ env.aws_secret_key }}
+          application_name: ${{ env.aws_application_name }}
+          environment_name: ${{ env.aws_environment_name }}
+          version_label: 119
+          region: us-east-1
+          deployment_package: deploy.zip

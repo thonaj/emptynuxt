@@ -77,6 +77,13 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip ../site/* -x '*.git*'
         
+      - run: |
+          pwd
+          echo -e '\n'
+          ls -a
+          echo -e '\n'
+          zipinfo deploy.zip
+        
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
         with:

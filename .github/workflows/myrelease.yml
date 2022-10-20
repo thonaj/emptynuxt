@@ -75,7 +75,9 @@ jobs:
           ls -a
       
       - name: Generate deployment package
-        run: zip -r deploy.zip ../site/* -x '*.git*'
+        run: |
+          cd ../site
+          zip -r ../deploy.zip . -x '*.git*'
         
       - run: |
           pwd

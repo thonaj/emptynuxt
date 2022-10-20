@@ -68,6 +68,11 @@ jobs:
       
       - name: Publish
         run: dotnet publish -o ../site
+        
+      - name: List site contents
+        run: |
+          cd ../site
+          ls -a
       
       - name: Generate deployment package
         run: zip -r deploy.zip ../site/* -x '*.git*'

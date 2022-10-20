@@ -37,19 +37,24 @@ jobs:
         with:
           node-version: '14'
           
-      - name: NPM Install
-        run: npm install
-        
-      - run: pwd
-      
+      #- name: NPM Install
+      #  run: npm install        
+      #- run: pwd      
       #- run: ls -a
       
       - run: |
           pwd
+          echo -e '\n'
           ls -a
+          echo -e '\n'
           cd ./EmptyServiceStackNuxt
+          echo -e '\n'
           pwd
+          echo -e '\n'
           ls -a
+          echo -e '\n'
+          npm install
+          echo -e '\n'
           npm run build
         
       #- name: NPM Build

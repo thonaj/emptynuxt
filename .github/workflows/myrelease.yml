@@ -43,6 +43,8 @@ jobs:
       - run: pwd
       
       - run: ls -a
+      
+      - run: cd ./EmptyServiceStackNuxt
         
       - name: NPM Build
         run: npm run build

@@ -47,6 +47,11 @@ jobs:
           npm install
           npm run build        
       
+      - name: Empty site folder
+        run: |
+          rmdir ../site /S /Q
+          mkdir ../site
+      
       - name: Publish
         run: dotnet publish -c Release -f net6.0 -r linux-x64 --self-contained false -o ../site
         

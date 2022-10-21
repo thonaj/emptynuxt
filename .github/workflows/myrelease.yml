@@ -40,27 +40,15 @@ jobs:
       - name: NPM - install - build
         run: |
           pwd
-          echo -e '\n'
           ls -a
-          echo -e '\n'
           cd ./EmptyServiceStackNuxt
-          echo -e '\n'
           pwd
-          echo -e '\n'
           ls -a
-          echo -e '\n'
           npm install
-          echo -e '\n'
-          npm run build
-        
-      #- name: Test
-      #  run: dotnet test --no-restore --verbosity normal
-        
-      #- name: Create the package
-      #  run: dotnet pack --configuration Release <emptynuxt>
+          npm run build        
       
       - name: Publish
-        run: dotnet publish -c Release -o ../site
+        run: dotnet publish -c Release -r linux-x64 --self-contained true -o ../site
         
       - name: List site contents
         run: |
@@ -79,9 +67,7 @@ jobs:
         
       - run: |
           pwd
-          echo -e '\n'
           ls -a
-          echo -e '\n'
           zipinfo deploy.zip
         
       - name: Deploy to EB

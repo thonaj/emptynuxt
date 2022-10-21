@@ -60,7 +60,7 @@ jobs:
       #  run: dotnet pack --configuration Release <emptynuxt>
       
       - name: Publish
-        run: dotnet publish - Release -o ../site
+        run: dotnet publish -c Release -o ../site
         
       - name: List site contents
         run: |

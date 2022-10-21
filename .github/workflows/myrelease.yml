@@ -35,14 +35,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
-          
-      #- name: NPM Install
-      #  run: npm install        
-      #- run: pwd      
-      #- run: ls -a
+          node-version: '14'       
       
-      - run: |
+      - name: NPM - install - build
+        run: |
           pwd
           echo -e '\n'
           ls -a
@@ -56,9 +52,6 @@ jobs:
           npm install
           echo -e '\n'
           npm run build
-        
-      #- name: NPM Build
-      #  run: npm run build
         
       #- name: Test
       #  run: dotnet test --no-restore --verbosity normal
